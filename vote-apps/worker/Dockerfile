@@ -1,4 +1,4 @@
-FROM java:7
+FROM hypriot/rpi-java
 
 RUN apt-get update -qq && apt-get install -y maven && apt-get clean
 
