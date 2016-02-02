@@ -2,13 +2,18 @@ voting-app:
   build: ./voting-app/.
   ports:
     - "5000:80"
+#  links:
+#    - "redis"   
 
 redis:
-  image: dduportal/redis-arm
+  image: dduportal/arm-redis
   ports: ["6379"]
 
 worker:
   build: ./worker
+#  links:
+#    - "redis"
+#    - "db"
 
 db:
   image: zsoltm/postgresql-armhf
@@ -19,3 +24,5 @@ result-app:
   build: ./result-app/.
   ports:
     - "5001:80"
+#  links:
+#    - "db"
